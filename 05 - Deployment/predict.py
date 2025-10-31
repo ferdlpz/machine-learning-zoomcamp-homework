@@ -34,7 +34,6 @@ with open(model_file, 'rb') as f_in:
 app = Flask('churn')
 @app.route('/predict', methods=['POST']) # POST porque enviamos información en el body
 def predict():
-
     customer = request.get_json()
     X = dv.transform([customer])
     y_pred = model.predict_proba(X)[0, 1]
